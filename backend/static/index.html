@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Food Manager</title>
+    <meta name="description" content="A full-stack AI-powered Food Management System">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js for Waste Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="glass-bg"></div>
+
+    <div class="app-layout">
+        <!-- Persistent Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="ai-badge">AI</span>
+                <h2>Food<span>Manager</span></h2>
+                <button class="mobile-menu-close" id="closeMenuBtn">✖</button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-target="dashboard">
+                    <span class="nav-icon">📷</span> Dashboard
+                </a>
+                <a href="#" class="nav-link" data-target="inventory">
+                    <span class="nav-icon">📦</span> Inventory
+                </a>
+                <a href="#" class="nav-link" data-target="grocery">
+                    <span class="nav-icon">🛒</span> Grocery List
+                </a>
+                <a href="#" class="nav-link" data-target="waste">
+                    <span class="nav-icon">🗑️</span> Waste Logs
+                </a>
+                <a href="#" class="nav-link" data-target="stock">
+                    <span class="nav-icon">📈</span> Stock Ledger
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="quality-legend">
+                    <h4>Status Legend</h4>
+                    <div class="legend-item"><span class="legend-dot fresh"></span> Fresh / Safe</div>
+                    <div class="legend-item"><span class="legend-dot avg"></span> Expiry Soon</div>
+                    <div class="legend-item"><span class="legend-dot bad"></span> Spoiled / Waste</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="mobile-header">
+                <button class="mobile-menu-btn" id="openMenuBtn">☰</button>
+                <h2>Food Manager</h2>
+            </header>
+
+            <!-- PAGE: Dashboard (Live Detection) -->
+            <section id="page-dashboard" class="page-view active">
+                <div class="page-header">
+                    <h2>Live Detection</h2>
+                    <p class="subtitle">Scan or upload food for quality passing and shelf-life estimation.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="viewer-section card glass">
+                        <div class="viewer-header">
+                            <div class="controls">
+                                <button id="webcamBtn" class="btn secondary">
+                                    <span class="icon">📷</span> Webcam
+                                </button>
+                                <button id="uploadBtn" class="btn secondary">
+                                    <span class="icon">📁</span> Upload
+                                </button>
+                                <input type="file" id="fileInput" hidden accept="image/*">
+                            </div>
+                            <div class="status">
+                                <span class="status-dot"></span> <span id="statusText">Ready</span>
+                            </div>
+                        </div>
+
+                        <div class="video-container">
+                            <video id="webcam" autoplay playsinline hidden></video>
+                            <canvas id="outputCanvas"></canvas>
+                            <div id="dropZone" class="drop-zone">
+                                <div class="drop-content">
+                                    <h3>Drop image here or click to upload</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-card card glass">
+                        <h3>Detection Results</h3>
+                        <div id="detectionsList" class="detections-list">
+                            <p class="empty-state">No food detected yet</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE: Inventory -->
+            <section id="page-inventory" class="page-view">
+                <div class="page-header">
+                    <h2>Live Inventory</h2>
+                    <p class="subtitle">Manage everything currently stored in your smart kitchen.</p>
+                    <button class="btn-small mt-2" onclick="fetchInventory()">🔄 Refresh Data</button>
+                </div>
+                
+                <div class="card glass full-width">
+                    <div class="table-responsive">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Food Item</th>
+                                    <th>Value</th>
+                                    <th>Freshness Score</th>
+                                    <th>Status & Expiry Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE: Grocery List -->
+            <section id="page-grocery" class="page-view">
+                <div class="page-header">
+                    <h2>Grocery List</h2>
+                    <p class="subtitle">Items generated from low stock or expired waste.</p>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn-small" onclick="fetchGrocery()">🔄 Refresh List</button>
+                        <button class="btn primary-gradient" onclick="openGroceryModal()">➕ Add New Item</button>
+                    </div>
+                </div>
+                    <ul id="groceryList" class="task-list mt-3">
+                        <!-- Populated dynamically -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PAGE: Waste Logs -->
+            <section id="page-waste" class="page-view">
+                <div class="page-header">
+                    <h2>Waste Analytics</h2>
+                    <p class="subtitle">Track your food waste and expired items over time.</p>
+                    <button class="btn-small mt-2" onclick="fetchWaste()">🔄 Refresh Logs</button>
+                </div>
+
+                <div class="waste-grid">
+                    <div class="card glass">
+                        <h3>Waste Breakdown</h3>
+                        <div class="chart-container">
+                            <canvas id="wasteChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card glass">
+                        <h3>Recent Discard Activity</h3>
+                        <ul id="wasteList" class="waste-list">
+                            <!-- Populated dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE: Stock In/Out Ledger -->
+            <section id="page-stock" class="page-view">
+                <div class="page-header">
+                    <h2>Stock Financial Ledger</h2>
+                    <p class="subtitle">Track inventory costs, sales revenue, and waste losses over time.</p>
+                    <button class="btn-small mt-2" onclick="fetchTransactions()">🔄 Refresh Data</button>
+                </div>
+
+                <div class="dashboard-grid mt-4">
+                    <!-- Finance Chart -->
+                    <div class="card glass">
+                        <h3>Income vs Expenses</h3>
+                        <div class="chart-container" style="height:250px; position:relative;">
+                            <canvas id="financeChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Ledger Table -->
+                    <div class="card glass">
+                        <h3>Transaction Log</h3>
+                        <div class="table-responsive">
+                            <table class="data-table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Item</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactionList">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Sell Modal -->
+    <div id="sellModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3 id="sellModalTitle">Sell Item</h3>
+                <button class="modal-btn-close" onclick="closeSellModal()">✖</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Quantity to Sell</label>
+                    <input type="number" id="sellModalQty" class="input-modern" min="1" value="1">
+                </div>
+                <div class="input-group">
+                    <label>Sell Price per Unit ($)</label>
+                    <input type="number" id="sellModalPrice" class="input-modern" min="0" step="0.01" value="0.00">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" onclick="closeSellModal()">Cancel</button>
+                <button class="btn" style="background:#10b981; color:white;" id="sellModalConfirmBtn">💰 Sell Item</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Note Modal -->
+    <div id="noteModal" class="modal-overlay">
+        <div class="modal-content glass" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Additional Notes</h3>
+                <button class="modal-btn-close" onclick="closeNoteModal()">✖</button>
+            </div>
+            <div class="modal-body">
+                <p id="noteModalText" style="color: var(--text-main); line-height: 1.5; font-size: 1rem;"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" onclick="closeNoteModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grocery Modal -->
+    <div id="groceryModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3 id="groceryModalTitle">Add to Grocery List</h3>
+                <button class="modal-btn-close" onclick="closeGroceryModal()">✖</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Item Name</label>
+                    <input type="text" id="gModalName" class="input-modern" placeholder="e.g. Milk">
+                </div>
+                <div class="input-group">
+                    <label>Quantity</label>
+                    <input type="number" id="gModalQty" class="input-modern" min="1" value="1">
+                </div>
+                <div class="input-group">
+                    <label>Est. Price ($)</label>
+                    <input type="number" id="gModalPrice" class="input-modern" min="0" step="0.01" value="0.00">
+                </div>
+                <div class="input-group">
+                    <label>Notes</label>
+                    <input type="text" id="gModalNotes" class="input-modern" placeholder="e.g. Organic preferred">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" onclick="closeGroceryModal()">Cancel</button>
+                <button class="btn primary-gradient" id="gModalConfirmBtn">Add to List</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal for Adding to Inventory -->
+    <div id="inventoryModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add Food Item</h3>
+                <button class="modal-btn-close" onclick="closeInventoryModal()">✖</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Quantity</label>
+                    <input type="number" id="modalQty" class="input-modern" min="1" value="1">
+                </div>
+                <div class="input-group">
+                    <label>Unit Price ($)</label>
+                    <input type="number" id="modalPrice" class="input-modern" min="0" step="0.01" value="0.00">
+                </div>
+                <div class="input-group">
+                    <label>Additional Notes</label>
+                    <input type="text" id="modalNotes" class="input-modern" placeholder="e.g. Store in fridge">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" onclick="closeInventoryModal()">Cancel</button>
+                <button class="btn primary-gradient" id="modalConfirmBtn">Confirm & Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

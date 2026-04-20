@@ -34,3 +34,12 @@ static/uploads/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Frontend (Nuxt/Node)
+frontend/.nuxt/
+frontend/.output/
+frontend/node_modules/
+frontend/.nitro/
+frontend/.cache/
+frontend/dist/
+node_modules/

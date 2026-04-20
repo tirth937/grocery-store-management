@@ -1,0 +1,15 @@
+{
+    "inventory": [],
+    "waste_logs": [],
+    "grocery_list": [],
+    "transactions_log": [],
+    "users": [
+        {
+            "_id": "facce2f4-10c3-4850-9e16-dcea92d9a547",
+            "email": "gafur.ghisela11@gmail.com",
+            "password": "$2b$12$RseMHarxPVRRjQ97FhG5iupry/fek0FFuao8LWSbi6/z2cQIZoGJu",
+            "full_name": "Tirth Patel",
+            "created_at": "2026-04-20T11:57:19.654210"
+        }
+    ]
+}

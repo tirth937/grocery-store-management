@@ -1,0 +1,22 @@
+# Food Quality Detection Dataset Configuration
+# Use with: python train_yolo.py
+# Download dataset first: python download_dataset.py
+
+path: ./food_quality_dataset
+train: train/images
+val: valid/images
+
+# Compound class labels: quality_food
+names:
+  0: fresh_apple
+  1: rotten_apple
+  2: fresh_banana
+  3: rotten_banana
+  4: fresh_orange
+  5: rotten_orange
+  6: fresh_mango
+  7: rotten_mango
+  8: fresh_strawberry
+  9: rotten_strawberry
+  10: fresh_grape
+  11: rotten_grape

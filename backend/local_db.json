@@ -1,0 +1,591 @@
+{
+    "inventory": [
+        {
+            "_id": "0ba4a4b3-ce2d-46ec-890c-d934dbc0c2a1",
+            "food_name": "Milk",
+            "quantity": 1,
+            "price_per_unit": 37.0,
+            "freshness_score": 100,
+            "status": "Safe to Eat",
+            "expiry_date": "2026-04-26T07:41:37.106733",
+            "added_date": "2026-04-19T07:41:37.106789",
+            "notes": "Seller Name: Amul | Seller Phone: 9874563215 | Store in the Fridge"
+        },
+        {
+            "_id": "80e6166a-afad-429d-bd10-59fe00617d5b",
+            "food_name": "Apple",
+            "quantity": 10,
+            "price_per_unit": 12.0,
+            "freshness_score": 98,
+            "status": "Safe to Eat",
+            "expiry_date": "2026-05-03T11:09:03.802754",
+            "added_date": "2026-04-19T11:09:03.804295",
+            "notes": "Seller: Tirth | Phone: 788787878"
+        }
+    ],
+    "waste_logs": [
+        {
+            "_id": "f93c0236-66fd-45ac-9add-94a8ace0280a",
+            "food_name": "Banana",
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:34:42.617610"
+        },
+        {
+            "_id": "b96a36a2-93c6-4b1c-8011-bab1e93591e5",
+            "food_name": "Banana",
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:34:43.608406"
+        },
+        {
+            "_id": "bedd512d-76c8-4c05-821f-895b0392c286",
+            "food_name": "Banana",
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:34:45.624835"
+        },
+        {
+            "_id": "939b079a-27cc-4eeb-9875-12b092179ab1",
+            "food_name": "Test Apple",
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:34:58.302671"
+        },
+        {
+            "_id": "49f823e0-8eae-4ddc-9c10-9ddd2c68d1eb",
+            "food_name": "Banana",
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:37:01.892418"
+        },
+        {
+            "_id": "4e65c718-44bc-48e7-810c-f8bd59061b92",
+            "food_name": "Banana",
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:37:02.958519"
+        },
+        {
+            "_id": "3bbc9d20-eea4-4f62-8789-f839a71a19b6",
+            "food_name": "Banana",
+            "quantity": 1,
+            "total_value": 0.0,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:55:38.752520"
+        },
+        {
+            "_id": "26b7522d-1798-4acb-a6ba-071e54813eb1",
+            "food_name": "Banana",
+            "quantity": 7,
+            "total_value": 0.0,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:55:40.613988"
+        },
+        {
+            "_id": "dfb4e487-7c2b-4b5d-945b-d11e2bce00ba",
+            "food_name": "Banana",
+            "quantity": 10,
+            "total_value": 10.0,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T06:55:43.354915"
+        },
+        {
+            "_id": "37881f5e-2385-4b25-9ea9-63b16a592897",
+            "food_name": "Banana",
+            "quantity": 17,
+            "total_value": 11.899999999999999,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T07:07:12.172562"
+        },
+        {
+            "_id": "ea85805d-277f-4568-b7f6-bd2b6ac56b89",
+            "food_name": "Banana",
+            "quantity": 1,
+            "total_value": 0.7,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-18T12:45:17.813166"
+        },
+        {
+            "_id": "f60cd572-db1a-474e-aad0-07e62cbb8110",
+            "food_name": "Banana",
+            "quantity": 2,
+            "total_value": 2.0,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-19T06:44:12.886261"
+        },
+        {
+            "_id": "b4c44f1b-3491-4249-b8cb-c212dc2f2809",
+            "food_name": "Banana",
+            "quantity": 2,
+            "total_value": 200.0,
+            "reason": "user_discarded",
+            "logged_date": "2026-04-19T06:45:11.934688"
+        },
+        {
+            "_id": "57277334-ff80-48f5-94e1-c4aff80a90ec",
+            "food_name": "Banana",
+            "quantity": 11,
+            "total_value": 110.0,
+            "reason": "Spilled",
+            "logged_date": "2026-04-19T06:49:59.679053"
+        },
+        {
+            "_id": "3e72f265-086e-44d3-80e6-d7fef24834bb",
+            "food_name": "Banana",
+            "quantity": 10,
+            "total_value": 110.0,
+            "reason": "ajdguka",
+            "logged_date": "2026-04-19T06:54:27.212822"
+        },
+        {
+            "_id": "3c4f1067-5db9-4561-a568-3e3312ce48ac",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "food_name": "Banana",
+            "quantity": 10,
+            "total_value": 120.0,
+            "reason": "Spilled",
+            "logged_date": "2026-04-20T12:10:27.517970"
+        }
+    ],
+    "grocery_list": [
+        {
+            "_id": "5731108e-c897-4bae-a542-885ff174725c",
+            "food_name": "Apple",
+            "quantity": 2,
+            "added_date": "2026-04-18T06:43:07.635022",
+            "purchased": true
+        },
+        {
+            "_id": "b8980e81-6471-47c5-959f-9145054b8f5a",
+            "food_name": "Apple",
+            "quantity": 1,
+            "estimated_price": 0.0,
+            "added_date": "2026-04-18T07:12:50.143594",
+            "purchased": true
+        },
+        {
+            "_id": "d7f5c2a6-0a99-46bf-9b36-4599df9ae370",
+            "food_name": "Apple",
+            "quantity": 10,
+            "estimated_price": 1.0,
+            "notes": "mt",
+            "added_date": "2026-04-18T07:32:21.216528",
+            "purchased": true
+        },
+        {
+            "_id": "e0c61b50-34f0-46b3-a0e5-2c874cde0852",
+            "food_name": "Tirth",
+            "quantity": 1,
+            "estimated_price": 0.0,
+            "notes": "",
+            "added_date": "2026-04-19T05:52:21.254266",
+            "purchased": true
+        },
+        {
+            "_id": "b9933f0a-fe66-4701-8501-0a4dad29926d",
+            "food_name": "Apple",
+            "quantity": 1,
+            "estimated_price": 0.0,
+            "notes": "",
+            "added_date": "2026-04-19T06:21:19.760631",
+            "purchased": true
+        },
+        {
+            "_id": "4165cf6e-32c2-4ae7-91a2-e523db5d2cb3",
+            "food_name": "Apple",
+            "quantity": 10,
+            "estimated_price": 10.0,
+            "notes": "",
+            "added_date": "2026-04-19T06:58:00.667279",
+            "purchased": true
+        },
+        {
+            "_id": "fb2e1bb4-665d-4b69-8994-4d9d8d8126d5",
+            "food_name": "Apple",
+            "quantity": 10,
+            "estimated_price": 15.0,
+            "notes": "",
+            "added_date": "2026-04-19T07:02:29.826174",
+            "purchased": true
+        },
+        {
+            "_id": "bf0a9655-c965-423b-8dd9-80549b4f982e",
+            "food_name": "Eggs",
+            "quantity": 10,
+            "estimated_price": 10.0,
+            "notes": "",
+            "added_date": "2026-04-19T07:49:34.644746",
+            "purchased": true
+        },
+        {
+            "_id": "00c65eb9-d076-4e6f-9c25-9b60375ca552",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "food_name": "Apple",
+            "quantity": 10,
+            "estimated_price": 15.0,
+            "notes": "",
+            "added_date": "2026-04-20T12:09:23.994079",
+            "purchased": true
+        }
+    ],
+    "transactions_log": [
+        {
+            "_id": "29b17363-e8ee-4c5c-8d8a-a5efaa8c6c14",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 0.0,
+            "total_value": 0.0,
+            "date": "2026-04-18T07:12:29.566720"
+        },
+        {
+            "_id": "d5f785e2-e400-4032-bd8e-e466bf2ccbd9",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 0.7,
+            "total_value": 7.0,
+            "date": "2026-04-18T12:44:28.832216"
+        },
+        {
+            "_id": "858b80e1-af8b-4103-8c94-043ee08eacd9",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 1.0,
+            "total_value": 10.0,
+            "date": "2026-04-18T12:45:00.392834"
+        },
+        {
+            "_id": "6b05378b-43de-40cb-9308-163264348536",
+            "type": "STOCK_OUT_WASTE",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 0.7,
+            "total_value": 0.7,
+            "date": "2026-04-18T12:45:17.813227"
+        },
+        {
+            "_id": "2e606e53-4374-492a-99a5-ac51fac9e6a5",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 0.0,
+            "total_value": 0.0,
+            "date": "2026-04-18T14:08:07.485164"
+        },
+        {
+            "_id": "c4d1d09e-de5c-41cd-9332-fad669b7406f",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 0.0,
+            "total_value": 0.0,
+            "date": "2026-04-19T05:43:24.121196"
+        },
+        {
+            "_id": "90594de9-6608-4017-bc7f-84bb971d1371",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 2,
+            "unit_price": 1.0,
+            "total_value": 2.0,
+            "date": "2026-04-19T05:49:47.333012"
+        },
+        {
+            "_id": "b5fcbe1b-2f9d-43d2-bbbe-3cad433e903f",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 2.0,
+            "total_value": 2.0,
+            "buyer_name": "Tirth",
+            "buyer_phone": "7802036364",
+            "date": "2026-04-19T06:39:10.537821"
+        },
+        {
+            "_id": "44d4b714-ab07-4980-9f01-8868bbed8175",
+            "type": "STOCK_OUT_WASTE",
+            "food_name": "Banana",
+            "quantity": 2,
+            "unit_price": 1.0,
+            "total_value": 2.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:44:12.886297"
+        },
+        {
+            "_id": "cc9af097-6279-46eb-b0ba-9134357624c3",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 0.0,
+            "total_value": 0.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:44:41.148903"
+        },
+        {
+            "_id": "463015ad-f3d3-47e2-9a17-6aacab3e97d4",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 10.0,
+            "total_value": 10.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:44:51.957277"
+        },
+        {
+            "_id": "0b31ca58-1ae8-424d-988c-836929a870ec",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 2,
+            "unit_price": 100.0,
+            "total_value": 200.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:45:09.111407"
+        },
+        {
+            "_id": "183d2e32-8146-4855-b0b9-941ff1332e8d",
+            "type": "STOCK_OUT_WASTE",
+            "food_name": "Banana",
+            "quantity": 2,
+            "unit_price": 100.0,
+            "total_value": 200.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:45:11.934746"
+        },
+        {
+            "_id": "036665ad-8c62-4a74-a824-f655ee423fc8",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 11,
+            "unit_price": 10.0,
+            "total_value": 110.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:49:31.262611"
+        },
+        {
+            "_id": "37cea2d9-eb4a-4580-b64a-f71a1686a781",
+            "type": "STOCK_OUT_WASTE",
+            "food_name": "Banana",
+            "quantity": 11,
+            "unit_price": 10.0,
+            "total_value": 110.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:49:59.679137"
+        },
+        {
+            "_id": "d1fb94cb-3a12-43f0-a858-84e8f03fa5f7",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 11.0,
+            "total_value": 110.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:54:13.450564"
+        },
+        {
+            "_id": "1bb21fc3-6388-4a5f-915c-62db039c0434",
+            "type": "STOCK_OUT_WASTE",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 11.0,
+            "total_value": 110.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T06:54:27.212843"
+        },
+        {
+            "_id": "3b12ac83-a9a3-42c9-9896-ee82700735e5",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 12.0,
+            "total_value": 120.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T07:21:48.143230"
+        },
+        {
+            "_id": "f06945a0-62f4-465d-b7ad-f36999428dcb",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 12.0,
+            "total_value": 12.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T07:23:57.972682"
+        },
+        {
+            "_id": "ef081d86-deba-4cfd-b7b8-db6c5fd6ffa2",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 14.0,
+            "total_value": 140.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T07:24:13.903601"
+        },
+        {
+            "_id": "7d7a967a-d7dc-4ded-9907-f8563d230c2d",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 8,
+            "unit_price": 13.05,
+            "total_value": 104.4,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T07:24:44.911912"
+        },
+        {
+            "_id": "d769e5fd-8ee2-405f-b883-e5b4765edf37",
+            "type": "STOCK_IN",
+            "food_name": "Milk",
+            "quantity": 1,
+            "unit_price": 37.0,
+            "total_value": 37.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T07:41:37.106802"
+        },
+        {
+            "_id": "1ae7e2cd-ab7e-4141-8463-acd2306761f7",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 1,
+            "unit_price": 13.95,
+            "total_value": 13.95,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T08:08:18.537267"
+        },
+        {
+            "_id": "60aaec93-81ee-4975-80b0-27d9421ee92f",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 14.0,
+            "total_value": 140.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T08:08:24.208853"
+        },
+        {
+            "_id": "fe371e88-52ef-4585-80b9-3fc4d9d00c59",
+            "type": "STOCK_IN",
+            "food_name": "Apple",
+            "quantity": 10,
+            "unit_price": 12.0,
+            "total_value": 120.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-19T11:09:03.804692"
+        },
+        {
+            "_id": "961d30dd-cbf0-4554-b570-21ad06185deb",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 12.0,
+            "total_value": 120.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-20T12:08:59.317171"
+        },
+        {
+            "_id": "aad09b21-3fb1-4b19-ab02-a0e1c9abce83",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 13.0,
+            "total_value": 130.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-20T12:09:12.990343"
+        },
+        {
+            "_id": "9f040e7d-bf8e-4d4a-8acf-8461e7772fca",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "type": "STOCK_IN",
+            "food_name": "Milk",
+            "quantity": 10,
+            "unit_price": 37.0,
+            "total_value": 370.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-20T12:09:41.236844"
+        },
+        {
+            "_id": "4f32e20d-8ba2-4fa9-a29f-8ed940b0fa4e",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "type": "STOCK_OUT_SALE",
+            "food_name": "Milk",
+            "quantity": 10,
+            "unit_price": 38.0,
+            "total_value": 380.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-20T12:09:52.433324"
+        },
+        {
+            "_id": "7b6ac745-e64c-4b2f-94c4-08362ae8490d",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "type": "STOCK_IN",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 12.0,
+            "total_value": 120.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-20T12:10:18.312169"
+        },
+        {
+            "_id": "c15127ae-ae59-47b1-a649-cf4170acf321",
+            "user_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "type": "STOCK_OUT_WASTE",
+            "food_name": "Banana",
+            "quantity": 10,
+            "unit_price": 12.0,
+            "total_value": 120.0,
+            "buyer_name": "",
+            "buyer_phone": "",
+            "date": "2026-04-20T12:10:27.518512"
+        }
+    ],
+    "users": [
+        {
+            "_id": "d91789f4-fac4-4e4c-bded-f51e7c9b5870",
+            "email": "tirth.ty.patel@gmail.com",
+            "password": "$2b$12$fe5UFhUm1JzRb9nSRjCwze5CuoE6VLwq/pZtKWV8gs3f4JAI9jwtS",
+            "full_name": "Tirth",
+            "created_at": "2026-04-19T11:35:34.422594"
+        },
+        {
+            "_id": "d801c1ab-a503-45aa-9135-bf3ac9ec1fd7",
+            "email": "tirth7802036364@gmail.com",
+            "password": "$2b$12$UTT62k0vwrSu9uIuVUFkqearVxUqm1cgkVfmCm3GENQEQUYkPG5Sq",
+            "full_name": "Tirth Patel",
+            "created_at": "2026-04-19T11:38:03.392240"
+        },
+        {
+            "_id": "c67bd017-32eb-44f0-8e04-a4452263d02c",
+            "email": "saumya@gmail.com",
+            "password": "$2b$12$qPK4QxvN2JpKVH.McUl3HehlmpekZ.uVjArthdYdAoYvaPQQqSTQ6",
+            "full_name": "Saumya",
+            "created_at": "2026-04-19T11:48:50.832297"
+        },
+        {
+            "_id": "33943853-49c5-4e85-9b84-56a738dceff4",
+            "email": "gafur.ghisela11@gmail.com",
+            "password": "$2b$12$sXsX1VrYQsZFfDfvu/y9wOTvoWsR3gU.HSJyLC1xFr398t90HbFkS",
+            "full_name": "Tirth Patel",
+            "created_at": "2026-04-20T12:06:31.422552"
+        }
+    ]
+}

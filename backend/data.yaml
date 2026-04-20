@@ -1,0 +1,7 @@
+path: ./yolo_dataset
+train: images/train
+val: images/val
+
+names:
+  0: cheeseburger_475cal
+  1: fries_350cal
