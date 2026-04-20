@@ -1,82 +1,56 @@
-![Screenshot](output_MFE8LS.gif)
-# Food_Detection
-Food detection using Tensorflow Object Detection API
+Grocery Store Management Project Details
+This project is a sophisticated Food Management & Quality Analysis System designed for grocery stores. It leverages AI for real-time food detection and quality assessment, integrated with a full inventory management backend.
 
-[Instructions are adapted from https://github.com/wagonhelm/TF_ObjectDetection_API/blob/master/README.md ]
-[Follow my blogpost for step by step instructions - https://blog.goodaudience.com/food-detection-app-using-tensorflow-object-detection-apis-1b9302a9aad2 ]
+🏗️ Architecture Overview
+The system follows a classic Client-Server architecture with an AI processing layer.
 
-## Required Packages [system requirements]
-* [TensorFlow v1.3](http://www.tensorflow.org/)
-* [Jupyter](http://jupyter.org/)
-* [NumPy](http://www.numpy.org/)
-* [Scipy](https://www.scipy.org/)
-* [Matplotlib](http://matplotlib.org/)
-* [Scikit-Image](http://scikit-image.org/)
-* [Pandas](http://pandas.pydata.org/)
-* [lxml](http://lxml.de/)
-* [protobuf](https://github.com/google/protobuf)
+1. Backend (Python / FastAPI)
+Framework: FastAPI, a high-performance Python web framework.
+Entry Point: backend/web_server.py
+Database:
+Primary: local_db.json (A file-based storage for easy deployment).
+Ready for: MongoDB (using database.py abstractions).
+Core logic:
+Auth: JWT-based authentication for secure access.
+Scheduler: An AsyncIOScheduler runs every hour to automatically check for expiring stock.
+2. Frontend (Nuxt.js / Vue 3)
+Framework: Nuxt 3, a modern Vue.js meta-framework.
+Language: TypeScript.
+Styling: Tailwind CSS for a modern, responsive UI.
+Core Views:
+Dashboard: Real-time summary of stock levels, waste, and sales.
+AI Analyzer: Upload or take photos of food to detect type and freshness.
+Inventory: Complete management of items, including price and quantity.
+Stock In/Out: Bulk inventory management with FIFO (First-In, First-Out) logic.
+Waste Tracking: Detailed logs of expired or discarded items.
+3. AI Layer (YOLOv11)
+Engine: Ultralytics YOLOv11.
+Models:
+yolo11n.pt: Base architecture.
+Supports custom-trained models for better accuracy on specific produce.
+Functionality:
+Object detection (Identifying "Apples", "Bananas", etc.).
+Quality analysis (Estimating freshness and remaining shelf life).
+🔥 Key Features
+🍏 Smart Food Analysis
+Utilizes the camera to identify food items and automatically calculate:
 
-1. Install system requirements
-
-```bash
-sudo apt-get install -y git-core wget protobuf-compiler 
-```
-2. Download and unzip [this entire repo from GitHub](https://github.com/wagonhelm/TF_ObjectDetection_API), either interactively, or by entering
-
-```bash
-git clone https://github.com/kumarkan/Food_Detection.git
-```
-
-3. Install Python Requirement. Make use of requirements.txt file
-
-```bash
-cd Food_Detection
-# Requires sudo if not in a virtual environment
-pip3 install -r requirements.txt
-pip3 install tensorflow jupyter
-```
-4. Clone TensorFlow Models Into Repository Directory and Install Object Detection API
-
-```bash
-cd Food_Detection
-git clone https://github.com/tensorflow/models.git
-```
-
-You will have to run this command every time you close your terminal unless you add the the path to slim to your `.bashrc` file
-
-```bash
-cd models/research/
-protoc object_detection/protos/*.proto --python_out=.
-export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
-cd ..
-cd ..
-```
-
-```bash
-Note: If you're getting errors while compiling, you might be using an incompatible protobuf compiler. If that's the case, use the following manual installation
-
-Manual protobuf-compiler installation and usage
-Download and install the 3.0 release of protoc, then unzip the file.
-
-From tensorflow/models/research/ --> 
-wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
-unzip protobuf.zip
-Run the compilation process again, but use the downloaded version of protoc
-
-From tensorflow/models/research/ -->
-./bin/protoc object_detection/protos/*.proto --python_out=.
-```
-
-4. Launch Jupyter
-```bash
-jupyter notebook
-```
-5. Launch Tensorboard In New Terminal
-```bash
-tensorboard --logdir='data'
-```
-Once both jupyter and tensorboard are running, using your browser, navigate to the URLs shown in the terminal output if those don't work  try http://localhost:8888/ for Jupyter Notebook and http://localhost:6006/ for Tensorboard.
-
-
-    
-
+Freshness Score: Percentage-based quality assessment.
+Estimated Expiry: Predicted days left until the item is unfit for sale.
+Status Classification: "Safe to Eat", "Eat Soon", or "Expired".
+📦 Inventory & Stock Management
+Aggregated View: Groups identical items to show total stock while maintaining individual batch IDs.
+FIFO Sales: Automatically sells the oldest stock first to minimize waste.
+Bulk Operations: "Stock In" for adding new shipments and "Stock Out" for recording sales.
+📊 Business Intelligence
+Dashboard Summary: Total investment vs. potential revenue.
+Transaction Logs: Every sale and stock movement is recorded for audit.
+Waste Analytics: Tracks why and what items were wasted to help optimize future orders.
+🛒 Utility Features
+Grocery List: An auto-generating shopping list based on low-stock items.
+Recipe Suggestions: Suggests recipes based on what's currently in your inventory.
+🛠️ Technical Stack
+Backend: Python 3.9+, FastAPI, Ultralytics YOLO, APScheduler, PyJWT.
+Frontend: Nuxt 3, Vue 3, Tailwind CSS, Lucide Icons.
+Database: JSON (Local) / MongoDB.
+Deployment: Docker support provided via Dockerfile.
